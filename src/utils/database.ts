@@ -5,16 +5,16 @@ import logger from './logger';
 mongoose.connect(config.mongoUri, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-  dbName: 'authenticator',
+  dbName: config.dbName,
   useFindAndModify: false,
   useCreateIndex: true,
 });
 
-const db = mongoose.connection;
+const database = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', () => {
-  logger.debug('connected to titan database');
+database.on('error', console.error.bind(console, 'connection error'));
+database.once('open', () => {
+  logger.debug('connected to local database');
 });
 
-export default db;
+export default database;

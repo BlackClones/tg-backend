@@ -2,18 +2,22 @@ import 'reflect-metadata';
 import { useExpressServer } from 'routing-controllers';
 import logger from './utils/logger';
 import config from './utils/config';
-import server, { routeControllerOptions } from './server';
+import server, { routingControllersOptions } from './server';
 import database from './utils/database';
 import { setLogLevel, LogLevels } from '@typegoose/typegoose';
+import { __WHOAMI__ } from './utils/whoami';
 setLogLevel(LogLevels.TRACE);
 
 async function bootstrap() {
+  /* Who are we? */
+  logger.info(__WHOAMI__);
+
   /* Setup Express Server to use Routing Controllers */
-  await useExpressServer(server, routeControllerOptions);
+  await useExpressServer(server, routingControllersOptions);
 
   /* Database Connection Pool:: A Declaration */
   logger.debug('waiting for database connection');
-  await database;
+  database;
 
   /* Start & Listen on HTTP Server */
   await server.listen({ port: config.PORT });
