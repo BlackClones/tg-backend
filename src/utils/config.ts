@@ -23,6 +23,7 @@ const dev = {
 
 const prod = {
   ...dev,
+  PORT: process.env.PORT,
   mongoUri: `mongodb+srv://evans:vanilla@devtuagye.g99dv.mongodb.net/${dev.dbName}?retryWrites=true&w=majority`,
   host: 'https://tuagye.com',
 };

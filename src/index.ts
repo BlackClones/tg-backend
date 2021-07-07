@@ -13,15 +13,15 @@ async function bootstrap() {
   logger.info(__WHOAMI__);
 
   /* Setup Express Server to use Routing Controllers */
-  await useExpressServer(server, routingControllersOptions);
+  useExpressServer(server, routingControllersOptions);
 
   /* Database Connection Pool:: A Declaration */
   logger.debug('waiting for database connection');
   database;
 
   /* Start & Listen on HTTP Server */
-  await server.listen({ port: config.PORT });
-  logger.info(`Running at http://${config.HOST}`);
+  server.listen({ port: config.PORT || process.env.PORT });
+  logger.info(`Running at ${process.env.HOST}${process.env.PORT}`);
 }
 
 process.on('unhandledRejection', (err) => {
