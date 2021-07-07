@@ -53,7 +53,7 @@ export default class EmailService {
       plainBody: `Account Info : Email Verification`,
       html: `<p>Dear ${payload.name} </p>
       <p>Your account was successfully created successfully </p>
-      <p> Verify your email address by clicking on this link <a>${token}</a></p>
+      <p> Verify your email address by clicking on this link <a href='${token}'>here</a></p>
         <p>Tuagye Team</p>
       `,
     };
@@ -75,7 +75,7 @@ export default class EmailService {
       subject: 'Email Verification ',
       plainBody: `Verify your Email`,
       html: `<p>Dear ${payload.name} </p>
-      <p>Your email verification request was recieved, uset this link <a>${token}</a></p>
+      <p>Your email verification request was recieved, click <a href='${token}'> here </a> to verify</p>
         <p>Tuagye Team</p>
       `,
     };

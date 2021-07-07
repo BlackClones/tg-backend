@@ -21,7 +21,7 @@ async function bootstrap() {
 
   /* Start & Listen on HTTP Server */
   server.listen({ port: config.PORT || process.env.PORT });
-  logger.info(`Running at ${process.env.HOST}${process.env.PORT}`);
+  logger.info(`Running at PORT ${process.env.PORT}`);
 }
 
 process.on('unhandledRejection', (err) => {
