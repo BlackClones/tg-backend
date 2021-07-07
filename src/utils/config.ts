@@ -23,7 +23,7 @@ const dev = {
 
 const prod = {
   ...dev,
-  mongoUri: 'mongodb://services.dev.worldtreeconsulting.com:27017',
+  mongoUri: `mongodb+srv://evans:vanilla@devtuagye.g99dv.mongodb.net/${dev.dbName}?retryWrites=true&w=majority`,
   host: 'https://tuagye.com',
 };
 
